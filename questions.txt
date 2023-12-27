@@ -1,0 +1,48 @@
+Name: Reda Boutayeb
+Homework 4 - Gauss-Jordan Elimination / Dynamic Programming
+
+1. a. Explain why the (repaired) ForwardElimination algorithm on page 210 on Levitin fails to provide a solution for:
+
+x1 + x2 + x3 = 6
+x1 + x2 + 2x3 = 9
+x1 + 2x2 + 3x3 = 14
+
+despite the fact that x = (1, 2, 3) or x1 = 1, x2 = 2, x3 = 3 can be easily verified as a solution to the system.
+
+
+ANSWER:
+
+The problem with this version of the ForwardElimination algorithm is that it does not incorporate the necessary partial
+pivoting step. In the ForwardElimination, when the algorithm encounters a situation where the pivot element (A[i, i]) is
+zero or close to zero, it does not attempt to find a row below it with a non-zero element in the ith column to swap the
+rows. This can lead to division by zero or numerical instability.
+
+1. b. How does BetterForwardElimination on page 211 of Levitin remedy this?
+
+ANSWER:
+
+The BetterForwardElimination algorithm on page 211 of Levitin remedies the issue by incorporating partial pivoting. This
+helps avoid the problems caused by having a zero or a very small number as a pivot element. By implementing partial
+pivoting, the BetterForwardElimination algorithm can successfully handle cases where the pivot element is zero or very
+small.
+
+2. a. Explain in some detail why the BetterForwardElimination algorithm on page 211 of Levitin to provide a solution for:
+
+x1 + x2 + x3 = 6
+x1 + x2 + 2x3 = 9
+2x1 + 2x2 + 3x3 = 15
+
+despite the fact that x = (1,2,3) or x1 = 1, x2 = 2, x3 = 3 can be easily verified as a solution to the system.
+
+ANSWER:
+The algorithm as reached its limits in terms of performing Gaussian elimination with partial pivoting.
+At this point, we should use the Backward Substitution method to solve for the variables.
+However, the BetterForwardElimination algorithm doesn't include the Backward Substitution method within it,
+so it won't provide the final solution.
+
+2. b. What can be done to remedy this shortcoming in the algorithm?
+
+ANSWER:
+
+To remedy the shortcoming of the BetterForwardElimination algorithm, we need to include the Backward Substitution method
+as part of the solution process. This will allow us to obtain the final solution once the elimination process is complete.
